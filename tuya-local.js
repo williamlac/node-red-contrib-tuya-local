@@ -63,6 +63,11 @@ module.exports = function(RED) {
 					data: req.data
 				});
 			}
+            else if ( "refreshDps" in req ) {
+                console.log(req)
+                device.refresh({schema: true, requestedDPS:req.refreshDps});
+            }
+ 
 		}
 
 
@@ -139,4 +144,3 @@ module.exports = function(RED) {
 	}
 	RED.nodes.registerType("tuya-local",TuyaNode);
 }
-
